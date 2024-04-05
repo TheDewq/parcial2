@@ -1,0 +1,48 @@
+este es el testing de la API
+
+QUERY => GET https://rickandmortyapi.com/api/character
+
+TEST:
+
+
+const jsonrpt = pm.response.json();
+
+pm.test("cantidad correcta de personajes", () =>{
+    console.warn(jsonrpt['results'].length)
+    pm.expect(Object.keys(jsonrpt.results).length).to.be.equal(20);
+})
+
+
+pm.test("result.episode no esta vacio"), () => {
+    pm.expect(verificar_todo_json()).to.be.equal(true);
+}
+
+
+function verificar_todo_json(){
+    for(var i = 0; i < jsonrpt.results.length; i++){
+        if(jsonrpt.results[i].episode != null){
+            return false;
+        }
+    }
+    return true;
+
+}
+
+
+----------------------------------------------------------------------------
+
+QUERY  => https://rickandmortyapi.com/api/character/2
+
+TEST:
+
+
+
+pm.test("id correcto", function () {
+    var jsonData = pm.response.json();
+    pm.expect(jsonData.id).to.eql(2);
+});
+
+pm.test("date en header", function () {
+    pm.response.to.have.header("Date");
+});
+
