@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.EditText
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -26,7 +27,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun funcion(v:View){
+        val text:EditText = findViewById(R.id.editTextText)
         val intent = Intent(this, second::class.java)
+        intent.putExtra("valor", text.text.toString())
         startActivity(intent)
     }
 

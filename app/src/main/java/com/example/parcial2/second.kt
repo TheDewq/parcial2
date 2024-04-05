@@ -1,6 +1,7 @@
 package com.example.parcial2
 
 import android.os.Bundle
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -16,5 +17,10 @@ class second : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        var valor: String? = intent.getStringExtra("valor")
+
+        val texto:TextView = findViewById(R.id.edtTextView)
+        texto.setText(valor)
     }
 }
